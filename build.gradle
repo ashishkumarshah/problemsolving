@@ -26,6 +26,7 @@ jacocoTestReport {
 }
 
 jacocoTestReport.dependsOn test
+check.dependsOn jacocoTestReport
 
 // In this section you declare where to find the dependencies of your project
 repositories {
