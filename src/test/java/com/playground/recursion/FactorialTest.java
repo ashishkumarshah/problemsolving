@@ -1,6 +1,6 @@
-package com.phodu.playground.factorial;
+package com.playground.recursion;
 
-import com.phodu.playground.factorial.Factorial;
+import com.playground.recursion.Factorial;
 
 import org.junit.Test;
 import static org.junit.Assert.*;

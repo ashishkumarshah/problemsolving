@@ -1,4 +1,4 @@
-package com.phodu.playground.factorial;
+package com.playground.recursion;
 
 public class Factorial{
 	public static long factorial(int pNumber) {
