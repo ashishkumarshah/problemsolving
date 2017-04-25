@@ -5,4 +5,5 @@
 [![codecov](https://codecov.io/gh/ashishkumarshah/problemsolving/branch/master/graph/badge.svg)](https://codecov.io/gh/ashishkumarshah/problemsolving)
 
 
-This is a collection of simple problems with their solutions in java. I want this project to be a collection of code with its test cases, so that it can act as a reference manual to someone looking for solutions to simple problems.
+This is a collection of simple problems with their solutions in java.
+The aim of this project is to act as a reference manual for someone looking for solutions to simple problems. This can also serve as a good introduction to someone who wants to get his hands dirty with Junits and learning TDD.
