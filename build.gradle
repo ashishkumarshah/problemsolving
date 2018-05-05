@@ -25,6 +25,10 @@ jacocoTestReport {
     }
 }
 
+task generateJavaDoc(type: Javadoc) {
+  source = sourceSets.main.allJava
+}
+
 jacocoTestReport.dependsOn test
 check.dependsOn jacocoTestReport
 
