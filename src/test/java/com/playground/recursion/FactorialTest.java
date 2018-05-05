@@ -16,7 +16,6 @@ public class FactorialTest {
         long retval = Factorial.factorial(-1);
         fail("Exception Not Thrown");
       } catch (IllegalArgumentException ex) {
-        
       }
     }
 }
