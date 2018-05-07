@@ -6,4 +6,9 @@
 
 
 This is a collection of simple problems with their solutions in java.
-The aim of this project is to act as a reference manual for someone looking for solutions to simple problems. This can also serve as a good introduction to someone who wants to get his hands dirty with Junits and learning TDD.
+The aim of this project is to act as a reference manual for someone looking for solutions to simple problems. 
+
+This can also serve as a good introduction for someone who wants to
+* Learn TDD
+* Prepare for Programming Interviews
+* Gets hands on with Java
