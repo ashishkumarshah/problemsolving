@@ -8,9 +8,14 @@
  */
 
 // Apply the java plugin to add support for Java
+plugins {
+  id 'com.github.sherter.google-java-format' version '0.6'
+}
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'jacoco'
+
+
 
 jacoco {
     toolVersion = "0.7.6.201602180812"
@@ -31,6 +36,8 @@ task generateJavaDoc(type: Javadoc) {
 
 jacocoTestReport.dependsOn test
 check.dependsOn jacocoTestReport
+
+compileJava.dependsOn 'verifyGoogleJavaFormat'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
