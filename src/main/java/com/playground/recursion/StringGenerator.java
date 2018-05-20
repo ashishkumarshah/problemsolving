@@ -1,5 +1,7 @@
 package com.playground.recursion;
 
+import java.util.*;
+
 /** This class is used to generate different types of strings */
 public class StringGenerator {
   /**
@@ -22,13 +24,36 @@ public class StringGenerator {
 
   /**
    * This function is used to generate the possible permutations strings of a given length for a
-   * given string.
+   * given string. At the moment this function doesn't handle repeated characters well. This needs
+   * to be fixed.
    *
-   * @param pString The String whose permutations have to be generated
+   * @param pInputCharacters List of characters whose permutations have to generated.
    * @param pLength The length of the permutation strings to be generated
    * @return Array of Permutation Strings
    */
-  public static String[] generatePermutations(String pString, int pLength) {
-    return null;
+  public static List<String> generatePermutations(List<Character> pInputCharacters, int pLength) {
+    List<String> conqueredListOfPermutations = new ArrayList<String>();
+    if (pLength > pInputCharacters.size()) {
+      return null;
+    } else if (pLength == 1) {
+      for (Character c : pInputCharacters) {
+        conqueredListOfPermutations.add(c.toString());
+      }
+    } else {
+
+      for (Character prefix : pInputCharacters) {
+        List<Character> dividedListOfCharacters = new ArrayList<Character>();
+        dividedListOfCharacters.addAll(pInputCharacters);
+        dividedListOfCharacters.remove(prefix);
+        // divide
+        List<String> dividedListOfPermutations =
+            generatePermutations(dividedListOfCharacters, pLength - 1);
+        // conquer
+        for (String permutatedString : dividedListOfPermutations) {
+          conqueredListOfPermutations.add(prefix.toString() + permutatedString);
+        }
+      }
+    }
+    return conqueredListOfPermutations;
   }
 }

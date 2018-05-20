@@ -2,6 +2,8 @@ package com.playground.recursion;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+import java.util.List;
 import org.junit.Test;
 
 public class StringGeneratorTest {
@@ -26,5 +28,12 @@ public class StringGeneratorTest {
     String[] retval = StringGenerator.generateBinaryStrings(0);
     assertEquals(0, retval.length);
     assertArrayEquals(new String[] {}, retval);
+  }
+
+  @Test
+  public void testGeneratePermutations() {
+    List<Character> input = Arrays.asList('a', 'p', 'p', 'l', 'e');
+    List<String> output = StringGenerator.generatePermutations(input, 5);
+    assertEquals(120, output.size());
   }
 }
