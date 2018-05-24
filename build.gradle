@@ -37,7 +37,6 @@ task generateJavaDoc(type: Javadoc) {
 jacocoTestReport.dependsOn test
 check.dependsOn jacocoTestReport
 
-compileJava.dependsOn 'verifyGoogleJavaFormat'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
