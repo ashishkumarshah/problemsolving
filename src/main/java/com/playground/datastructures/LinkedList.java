@@ -4,7 +4,7 @@ package com.playground.datastructures;
 public class LinkedList {
   private LinkedListNode head;
 
-  LinkedList() {}
+  public LinkedList() {}
   /**
    * This function is used to set the head of a linked list
    *
