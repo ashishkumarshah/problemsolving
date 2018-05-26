@@ -36,4 +36,11 @@ public class StringGeneratorTest {
     List<String> output = StringGenerator.generatePermutations(input, 5);
     assertEquals(120, output.size());
   }
+
+  @Test
+  public void testGeneratePermutationsNegative() {
+    List<Character> input = Arrays.asList('a', 'p', 'p', 'l', 'e');
+    List<String> output = StringGenerator.generatePermutations(input, 6);
+    assertEquals(null, output);
+  }
 }

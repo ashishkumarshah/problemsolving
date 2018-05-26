@@ -72,12 +72,35 @@ public class LinkedList {
     LinkedListNode deletedNode = null;
     if (head != null) {
       deletedNode = head;
-      LinkedListNode newHead = null;
-      if (head.getNext() != null) {
-        newHead = head.getNext();
-      }
-      setHead(newHead);
+      setHead(head.getNext());
     }
     return deletedNode;
+  }
+  /**
+   * This function is used to insert a node at a position n from the head
+   *
+   * @param pNode The node which is to be insertd
+   * @param pPosition The position from the head where the node is to be inserted.
+   */
+  public void insertAtNPosition(LinkedListNode pNode, int pPosition) {
+    if (pPosition < 1) {
+      return;
+    }
+    if (pPosition == 1) {
+      insertBeforeHead(pNode);
+      return;
+    }
+    LinkedListNode current;
+    int count;
+    for (current = head, count = 1;
+        count < pPosition - 1 && current != null;
+        count++, current = current.getNext()) {}
+    if (current != null) {
+      pNode.setNext(current.getNext());
+      current.setNext(pNode);
+    } else {
+
+    }
+    return;
   }
 }

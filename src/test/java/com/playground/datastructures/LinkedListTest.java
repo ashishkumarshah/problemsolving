@@ -1,5 +1,6 @@
 package com.playground.datastructures;
 
+import static com.playground.utils.LinkedListUtils.printList;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -29,5 +30,17 @@ public class LinkedListTest {
     assertEquals(10, linkedList.deleteAfterHead().getData());
     assertEquals(null, linkedList.deleteAfterHead());
     assertEquals(30, linkedList.getHead().getData());
+    printList(linkedList);
+    linkedList.insertAtNPosition(node1, 1);
+    printList(linkedList);
+    assertEquals(10, linkedList.getHead().getData());
+    linkedList.insertAtNPosition(node2, 2);
+    printList(linkedList);
+    assertEquals(20, linkedList.getHead().getNext().getData());
+    linkedList.insertAtNPosition(node4, 4);
+    printList(linkedList);
+    assertEquals(20, linkedList.getHead().getNext().getData());
+    assertEquals(30, linkedList.getHead().getNext().getNext().getData());
+    assertEquals(40, linkedList.getHead().getNext().getNext().getNext().getData());
   }
 }
