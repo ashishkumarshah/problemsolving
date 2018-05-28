@@ -75,4 +75,20 @@ public class LinkedListUtils {
     } while (current != null);
     System.out.println("null");
   }
+  /**
+   * This function is used to count the occurences of a given element in the linked list
+   *
+   * @param pLinkedList The linked list
+   * @param pElement The element whose count is needed
+   * @return occurence count of the given element
+   */
+  public static int getOccurenceCount(LinkedList pLinkedList, Object pElement) {
+    int occurenceCount = 0;
+    for (LinkedListNode current = pLinkedList.getHead();
+        current != null;
+        current = current.getNext()) {
+      if (current.getData().equals(pElement)) occurenceCount++;
+    }
+    return occurenceCount;
+  }
 }

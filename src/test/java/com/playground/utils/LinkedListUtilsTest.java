@@ -115,6 +115,34 @@ public class LinkedListUtilsTest {
   }
 
   @Test
+  public void testLinkedListOccurenceCount() {
+    LinkedList l = new LinkedList();
+
+    LinkedListNode node1 = new LinkedListNode(1);
+    LinkedListNode node2 = new LinkedListNode(2);
+    LinkedListNode node3 = new LinkedListNode(3);
+    LinkedListNode node4 = new LinkedListNode(4);
+    LinkedListNode node5 = new LinkedListNode(5);
+    LinkedListNode node6 = new LinkedListNode(6);
+    LinkedListNode node7 = new LinkedListNode(7);
+    LinkedListNode node8 = new LinkedListNode(8);
+    LinkedListNode node9 = new LinkedListNode(9);
+    LinkedListNode node10 = new LinkedListNode(1);
+    l.insertBeforeHead(node1);
+    l.insertBeforeHead(node2);
+    l.insertBeforeHead(node3);
+    l.insertBeforeHead(node4);
+    l.insertBeforeHead(node5);
+    l.insertBeforeHead(node6);
+    l.insertBeforeHead(node7);
+    l.insertBeforeHead(node8);
+    l.insertBeforeHead(node9);
+    assertEquals(1, LinkedListUtils.getOccurenceCount(l, 1));
+    l.insertBeforeHead(node10);
+    assertEquals(2, LinkedListUtils.getOccurenceCount(l, 1));
+  }
+
+  @Test
   public void testListReverse() {
     LinkedList l = new LinkedList();
 
