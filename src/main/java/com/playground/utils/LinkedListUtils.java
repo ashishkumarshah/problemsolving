@@ -94,8 +94,8 @@ public class LinkedListUtils {
   /**
    * This function is used to find the middle of a linked list.
    *
-   * @param pLinkedList The linked list, whose middle element is to be found.
-   * @param The middle element of the linked list.
+   * @param linkedList The linked list, whose middle element is to be found.
+   * @return The middle element of the linked list.
    */
   public static LinkedListNode getMiddleElement(LinkedList linkedList) {
     LinkedListNode middle = linkedList.getHead();
