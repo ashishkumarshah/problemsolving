@@ -174,4 +174,37 @@ public class LinkedListUtilsTest {
       i++;
     }
   }
+
+  @Test
+  public void testGetListMiddle() {
+    LinkedList l = new LinkedList();
+
+    LinkedListNode node1 = new LinkedListNode(1);
+    LinkedListNode node2 = new LinkedListNode(2);
+    LinkedListNode node3 = new LinkedListNode(3);
+    LinkedListNode node4 = new LinkedListNode(4);
+    LinkedListNode node5 = new LinkedListNode(5);
+    LinkedListNode node6 = new LinkedListNode(6);
+    LinkedListNode node7 = new LinkedListNode(7);
+    LinkedListNode node8 = new LinkedListNode(8);
+    LinkedListNode node9 = new LinkedListNode(9);
+    l.insertBeforeHead(node1);
+    assertEquals(node1.getData(), LinkedListUtils.getMiddleElement(l).getData());
+    l.insertBeforeHead(node2);
+    assertEquals(node1.getData(), LinkedListUtils.getMiddleElement(l).getData());
+    l.insertBeforeHead(node3);
+    assertEquals(node2.getData(), LinkedListUtils.getMiddleElement(l).getData());
+    l.insertBeforeHead(node4);
+    assertEquals(node2.getData(), LinkedListUtils.getMiddleElement(l).getData());
+    l.insertBeforeHead(node5);
+    assertEquals(node3.getData(), LinkedListUtils.getMiddleElement(l).getData());
+    l.insertBeforeHead(node6);
+    assertEquals(node3.getData(), LinkedListUtils.getMiddleElement(l).getData());
+    l.insertBeforeHead(node7);
+    assertEquals(node4.getData(), LinkedListUtils.getMiddleElement(l).getData());
+    l.insertBeforeHead(node8);
+    assertEquals(node4.getData(), LinkedListUtils.getMiddleElement(l).getData());
+    l.insertBeforeHead(node9);
+    assertEquals(node5.getData(), LinkedListUtils.getMiddleElement(l).getData());
+  }
 }

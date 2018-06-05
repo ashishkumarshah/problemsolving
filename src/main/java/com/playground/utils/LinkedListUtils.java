@@ -91,4 +91,22 @@ public class LinkedListUtils {
     }
     return occurenceCount;
   }
+  /**
+   * This function is used to find the middle of a linked list.
+   *
+   * @param pLinkedList The linked list, whose middle element is to be found.
+   * @param The middle element of the linked list.
+   */
+  public static LinkedListNode getMiddleElement(LinkedList linkedList) {
+    LinkedListNode middle = linkedList.getHead();
+    LinkedListNode last = linkedList.getHead();
+    while (last != null) {
+      last = last.getNext();
+      if (last != null) {
+        last = last.getNext();
+        middle = middle.getNext();
+      }
+    }
+    return middle;
+  }
 }
