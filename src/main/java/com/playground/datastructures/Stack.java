@@ -1,5 +1,5 @@
 package com.playground.datastructures;
-
+/** This class implements the Stack Datastructure */
 public class Stack {
   private LinkedList linkedList;
   /** Constructor to create the Stack Object */

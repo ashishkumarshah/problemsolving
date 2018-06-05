@@ -1,6 +1,6 @@
-/** This class has an implementation of the Linked List data structure. */
-package com.playground.datastructures;
 
+package com.playground.datastructures;
+/** This class has an implementation of the Linked List data structure. */
 public class LinkedList {
   private LinkedListNode head;
 
