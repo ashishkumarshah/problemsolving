@@ -17,12 +17,12 @@ public class UniqueMorseCodeWords {
    * This method is used to retreive the unique morse code representations for the given array of
    * strings.
    *
-   * @param words Array of words
+   * @param pWords Array of words
    * @return unique count of the morse code representations.
    */
-  public static int getUniqueMorseCodeCount(String[] words) {
+  public static int getUniqueMorseCodeCount(String[] pWords) {
     HashSet<String> morseCodes = new HashSet<String>();
-    for (String s : words) {
+    for (String s : pWords) {
       String morseCode = MorseCodeGenerator.generateMorse(s);
       morseCodes.add(morseCode);
     }

@@ -65,10 +65,10 @@ public class LinkedListUtils {
   /**
    * This function is used to print a linked list
    *
-   * @param linkedList The linked list to print
+   * @param pLinkedList The linked list to print
    */
-  public static void printList(LinkedList linkedList) {
-    LinkedListNode current = linkedList.getHead();
+  public static void printList(LinkedList pLinkedList) {
+    LinkedListNode current = pLinkedList.getHead();
     do {
       System.out.print(current.getData() + "-->");
       current = current.getNext();
@@ -94,12 +94,12 @@ public class LinkedListUtils {
   /**
    * This function is used to find the middle of a linked list.
    *
-   * @param linkedList The linked list, whose middle element is to be found.
+   * @param pLinkedList The linked list, whose middle element is to be found.
    * @return The middle element of the linked list.
    */
-  public static LinkedListNode getMiddleElement(LinkedList linkedList) {
-    LinkedListNode middle = linkedList.getHead();
-    LinkedListNode last = linkedList.getHead();
+  public static LinkedListNode getMiddleElement(LinkedList pLinkedList) {
+    LinkedListNode middle = pLinkedList.getHead();
+    LinkedListNode last = pLinkedList.getHead();
     while (last != null) {
       last = last.getNext();
       if (last != null) {

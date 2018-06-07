@@ -10,12 +10,12 @@ class MorseCodeGenerator {
   /**
    * This method is used to generate morse code for the given String
    *
-   * @param input The input String
+   * @param pInput The input String
    * @return Morse Code representation of the String
    */
-  public static String generateMorse(String input) {
+  public static String generateMorse(String pInput) {
     StringBuilder morseCodeBuilder = new StringBuilder();
-    String lowerCaseInput = input.toLowerCase();
+    String lowerCaseInput = pInput.toLowerCase();
     for (int i = 0; i < lowerCaseInput.length(); i++) {
       String charMorseCode = getMorseCodeForAlphabet(lowerCaseInput.charAt(i));
       morseCodeBuilder.append(charMorseCode);
@@ -26,11 +26,11 @@ class MorseCodeGenerator {
   /**
    * This method is used to generate morse code for the given Character
    *
-   * @param c The input Character
+   * @param pAlphabet The input Character
    * @return Morse Code representation of the Character
    */
-  private static String getMorseCodeForAlphabet(char c) {
-    int index = Character.getNumericValue(c) - Character.getNumericValue('a');
+  private static String getMorseCodeForAlphabet(char pAlphabet) {
+    int index = Character.getNumericValue(pAlphabet) - Character.getNumericValue('a');
     return morseCodeConversionTable[index];
   }
 }
