@@ -4,7 +4,7 @@ package com.playground.datastructures;
 public class CircularQueue {
   private int rear;
   private int front;
-  private int[] elements;
+  private Object[] elements;
   private int capacity;
 
   /**
@@ -15,7 +15,7 @@ public class CircularQueue {
   public CircularQueue(int pCapacity) {
     capacity = pCapacity;
     rear = front = -1;
-    elements = new int[capacity];
+    elements = new Object[capacity];
   }
 
   /**
@@ -24,13 +24,7 @@ public class CircularQueue {
    * @return true if the queue is full, false otherwise
    */
   private boolean isFull() {
-    if (front == 0 && rear == capacity - 1) {
-      return true;
-    }
-    if (front == rear + 1) {
-      return true;
-    }
-    return false;
+    return ((front == 0 && rear == capacity - 1) || (front == rear + 1));
   }
 
   /**
@@ -38,11 +32,8 @@ public class CircularQueue {
    *
    * @return true if the queue is empty, false otherwise
    */
-  private boolean isEmpty() {
-    if (front == -1) {
-      return true;
-    }
-    return false;
+  public boolean isEmpty() {
+    return (front == -1);
   }
 
   /**
@@ -51,7 +42,7 @@ public class CircularQueue {
    * @param pElement The Element to be queued
    * @throws QueueOverflowException QueueOverflowException if the queue is full
    */
-  public void enqueue(int pElement) throws QueueOverflowException {
+  public void enqueue(Object pElement) throws QueueOverflowException {
     // check for front overwrite
     if (isFull()) {
       throw new QueueOverflowException();
@@ -67,13 +58,17 @@ public class CircularQueue {
    * @return The dequeued element
    * @throws EmptyQueueException EmptyQueueException if the queue is empty
    */
-  public int deQueue() throws EmptyQueueException {
-    int element = 0;
+  public Object deQueue() throws EmptyQueueException {
+    Object element = 0;
     if (isEmpty()) {
       throw new EmptyQueueException();
     } else {
       element = elements[front];
+      // time to adjust the front
+      // also we may have to adjust rear, if we are dequeueing the only element in the queue.
       if (front == rear) {
+        // This is the scenario where we have only one element in the queue and we are dequeueing
+        // the only element, so time to reset the queue.
         front = rear = -1;
       } else {
         front = (front + 1) % capacity;

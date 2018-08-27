@@ -26,8 +26,8 @@ public class CircularQueueTest {
     cq.enqueue(8);
     cq.enqueue(9);
     cq.enqueue(10);
-    int deQueuedValue = cq.deQueue();
-    assertEquals(1, deQueuedValue);
+    Integer deQueuedValue = (Integer) cq.deQueue();
+    assertEquals(new Integer(1), deQueuedValue);
     cq.enqueue(11);
     try {
       cq.enqueue(12);
@@ -35,29 +35,29 @@ public class CircularQueueTest {
     } catch (QueueOverflowException queueOverflowException) {
       // This is expected. Move on
     }
-    deQueuedValue = cq.deQueue();
-    assertEquals(2, deQueuedValue);
+    deQueuedValue = (Integer) cq.deQueue();
+    assertEquals(new Integer(2), deQueuedValue);
     cq.enqueue(12);
-    deQueuedValue = cq.deQueue();
-    assertEquals(3, deQueuedValue);
-    deQueuedValue = cq.deQueue();
-    assertEquals(4, deQueuedValue);
-    deQueuedValue = cq.deQueue();
-    assertEquals(5, deQueuedValue);
-    deQueuedValue = cq.deQueue();
-    assertEquals(6, deQueuedValue);
-    deQueuedValue = cq.deQueue();
-    assertEquals(7, deQueuedValue);
-    deQueuedValue = cq.deQueue();
-    assertEquals(8, deQueuedValue);
-    deQueuedValue = cq.deQueue();
-    assertEquals(9, deQueuedValue);
-    deQueuedValue = cq.deQueue();
-    assertEquals(10, deQueuedValue);
-    deQueuedValue = cq.deQueue();
-    assertEquals(11, deQueuedValue);
-    deQueuedValue = cq.deQueue();
-    assertEquals(12, deQueuedValue);
+    deQueuedValue = (Integer) cq.deQueue();
+    assertEquals(new Integer(3), deQueuedValue);
+    deQueuedValue = (Integer) cq.deQueue();
+    assertEquals(new Integer(4), deQueuedValue);
+    deQueuedValue = (Integer) cq.deQueue();
+    assertEquals(new Integer(5), deQueuedValue);
+    deQueuedValue = (Integer) cq.deQueue();
+    assertEquals(new Integer(6), deQueuedValue);
+    deQueuedValue = (Integer) cq.deQueue();
+    assertEquals(new Integer(7), deQueuedValue);
+    deQueuedValue = (Integer) cq.deQueue();
+    assertEquals(new Integer(8), deQueuedValue);
+    deQueuedValue = (Integer) cq.deQueue();
+    assertEquals(new Integer(9), deQueuedValue);
+    deQueuedValue = (Integer) cq.deQueue();
+    assertEquals(new Integer(10), deQueuedValue);
+    deQueuedValue = (Integer) cq.deQueue();
+    assertEquals(new Integer(11), deQueuedValue);
+    deQueuedValue = (Integer) cq.deQueue();
+    assertEquals(new Integer(12), deQueuedValue);
   }
 
   @Test
