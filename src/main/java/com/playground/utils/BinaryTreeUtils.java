@@ -17,7 +17,7 @@ public class BinaryTreeUtils {
    * @param bt The binary tree
    * @return The depth of the tree
    */
-  public static int findMaxDepth(BinaryTree bt) {
+  public static int findMaxDepth(BinaryTree<?> bt) {
 
     return findMaxDepthInternal(bt.getRoot());
   }
@@ -28,7 +28,7 @@ public class BinaryTreeUtils {
    * @param pNode The node corresponding to which depth has to be found
    * @return depth relative to the node
    */
-  private static int findMaxDepthInternal(BinaryTreeNode pNode) {
+  private static int findMaxDepthInternal(BinaryTreeNode<?> pNode) {
     int depth = 0;
     int leftDepth = 0;
     int rightDepth = 0;
@@ -177,5 +177,42 @@ public class BinaryTreeUtils {
       }
     }
     return false;
+  }
+
+  /**
+   * Function to find the diameter of a binary tree
+   *
+   * @param bt The binary tree whose diameter is to be found
+   * @return The diameter of the Binary Tree
+   */
+  public static int findDiameter(BinaryTree<?> bt) {
+    return findDiameterInternal(bt.getRoot());
+  }
+  /**
+   * Private Function to determine the diameter at the subtree of a binary tree under a given node
+   *
+   * @param pNode The node of a Binary Tree
+   * @return The dimater of the subtree under the given node
+   */
+  private static int findDiameterInternal(BinaryTreeNode<?> pNode) {
+    int lDepth = 0;
+    if (pNode.getLeft() != null) {
+      lDepth = findMaxDepthInternal(pNode.getLeft());
+    }
+    int rDepth = 0;
+    if (pNode.getRight() != null) {
+      rDepth = findMaxDepthInternal(pNode.getRight());
+    }
+    int diameterIncludingCurrentNode = 1 + lDepth + rDepth;
+    int leftTreeDiameter = 0;
+    if (pNode.getLeft() != null) {
+      leftTreeDiameter = findDiameterInternal(pNode.getLeft());
+    }
+    int rightTreeDiameter = 0;
+    if (pNode.getRight() != null) {
+      rightTreeDiameter = findDiameterInternal(pNode.getRight());
+    }
+    return Integer.max(
+        diameterIncludingCurrentNode, Integer.max(leftTreeDiameter, rightTreeDiameter));
   }
 }

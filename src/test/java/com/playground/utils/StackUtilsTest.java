@@ -42,4 +42,12 @@ public class StackUtilsTest {
     assertEquals(new Integer(11), stack.pop());
     assertTrue(stack.isEmpty());
   }
+
+  @Test
+  public void testStockSpan() {
+    int[] closingStockPrices = {100, 80, 60, 70, 60, 75, 85};
+    int[] actualStockSpans = StackUtils.getStockSpan(closingStockPrices);
+    int[] expectedStockSpansArray = {1, 1, 1, 2, 1, 4, 6};
+    assertArrayEquals(expectedStockSpansArray, actualStockSpans);
+  }
 }

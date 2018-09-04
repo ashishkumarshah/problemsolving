@@ -89,4 +89,18 @@ public class BinaryTreeUtilsTest {
     assertFalse(BinaryTreeUtils.performBreadthFirstSearch(bt, 1));
     assertFalse(BinaryTreeUtils.performBreadthFirstSearch(bt, 2));
   }
+
+  @Test
+  public void testDiameter() {
+    BinaryTree<Integer> bt = new BinaryTree<Integer>(11);
+    BinaryTreeNode<Integer> root = bt.getRoot();
+    root.setLeft(new BinaryTreeNode<Integer>(12, null, null));
+    root.setRight(new BinaryTreeNode<Integer>(13, null, null));
+    root.getLeft().setLeft(new BinaryTreeNode<Integer>(14, null, null));
+    root.getLeft().setRight(new BinaryTreeNode<Integer>(15, null, null));
+    root.getRight().setLeft(new BinaryTreeNode<Integer>(16, null, null));
+    root.getRight().setRight(new BinaryTreeNode<Integer>(17, null, null));
+    root.getRight().getRight().setRight(new BinaryTreeNode<Integer>(18, null, null));
+    assertEquals(6, BinaryTreeUtils.findDiameter(bt));
+  }
 }
