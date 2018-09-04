@@ -9,7 +9,7 @@ import org.junit.Test;
 public class BinaryTreeUtilsTest {
 
   @Test
-  public void test1() {
+  public void testFindMaxDepth() {
     BinaryTree<Integer> bt = new BinaryTree<Integer>(11);
     BinaryTreeNode<Integer> root = bt.getRoot();
     root.setLeft(new BinaryTreeNode<Integer>(12, null, null));
@@ -26,7 +26,24 @@ public class BinaryTreeUtilsTest {
   }
 
   @Test
-  public void test() {
+  public void testFindDeepestPath() {
+    BinaryTree<Integer> bt = new BinaryTree<Integer>(11);
+    BinaryTreeNode<Integer> root = bt.getRoot();
+    root.setLeft(new BinaryTreeNode<Integer>(12, null, null));
+    root.setRight(new BinaryTreeNode<Integer>(13, null, null));
+    root.getLeft().setLeft(new BinaryTreeNode<Integer>(14, null, null));
+    root.getLeft().setRight(new BinaryTreeNode<Integer>(15, null, null));
+    root.getRight().setLeft(new BinaryTreeNode<Integer>(16, null, null));
+    root.getRight().setRight(new BinaryTreeNode<Integer>(17, null, null));
+    assertEquals(BinaryTreeUtils.findDeepestPath(bt).size(), 3);
+    root.getRight().getRight().setRight(new BinaryTreeNode<Integer>(17, null, null));
+    assertEquals(BinaryTreeUtils.findDeepestPath(bt).size(), 4);
+    root.getRight().getRight().getRight().setLeft(new BinaryTreeNode<Integer>(17, null, null));
+    assertEquals(BinaryTreeUtils.findDeepestPath(bt).size(), 5);
+  }
+
+  @Test
+  public void testPerformDepthFirstSearch() {
     BinaryTree<Integer> bt = new BinaryTree<Integer>(11);
     assertEquals(11, BinaryTreeUtils.findMax(bt));
     BinaryTreeNode<Integer> root = bt.getRoot();
@@ -62,9 +79,9 @@ public class BinaryTreeUtilsTest {
     root.getLeft().setRight(new BinaryTreeNode<Integer>(15, null, null));
     root.getRight().setLeft(new BinaryTreeNode<Integer>(16, null, null));
     root.getRight().setRight(new BinaryTreeNode<Integer>(17, null, null));
-    assertEquals(62, BinaryTreeUtils.leafNodeSum(bt));
+    assertEquals(62, BinaryTreeUtils.findLeafNodeSum(bt));
     root.getRight().getRight().setRight(new BinaryTreeNode<Integer>(18, null, null));
-    assertEquals(18, BinaryTreeUtils.leafNodeSum(bt));
+    assertEquals(18, BinaryTreeUtils.findLeafNodeSum(bt));
   }
 
   @Test

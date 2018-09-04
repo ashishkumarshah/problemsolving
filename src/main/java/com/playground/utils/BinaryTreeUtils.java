@@ -12,6 +12,41 @@ import java.util.Queue;
  */
 public class BinaryTreeUtils {
   /**
+   * Function to determine the deepest path of a binary tree
+   *
+   * @param bt The Binary Tree
+   * @return the deepest path in the binary tree
+   */
+  public static LinkedList<BinaryTreeNode<?>> findDeepestPath(BinaryTree<?> bt) {
+    return findDeepestPathInternal(bt.getRoot());
+  }
+
+  /**
+   * Private Internal Function to find the deepest path of a subtree under a node.
+   *
+   * @param pNode The node of the tree under which the deepest path has to be found
+   * @return The deepest path under the node in the sub tree
+   */
+  private static LinkedList<BinaryTreeNode<?>> findDeepestPathInternal(BinaryTreeNode<?> pNode) {
+    LinkedList<BinaryTreeNode<?>> deepestPath = new LinkedList<BinaryTreeNode<?>>();
+    deepestPath.add(pNode);
+    LinkedList<BinaryTreeNode<?>> leftDeepestPath = new LinkedList<BinaryTreeNode<?>>();
+    if (pNode.getLeft() != null) {
+      leftDeepestPath = findDeepestPathInternal(pNode.getLeft());
+    }
+    LinkedList<BinaryTreeNode<?>> rightDeepestPath = new LinkedList<BinaryTreeNode<?>>();
+    if (pNode.getRight() != null) {
+      rightDeepestPath = findDeepestPathInternal(pNode.getRight());
+    }
+    if (leftDeepestPath.size() > rightDeepestPath.size()) {
+      deepestPath.addAll(leftDeepestPath);
+    } else {
+      deepestPath.addAll(rightDeepestPath);
+    }
+    return deepestPath;
+  }
+
+  /**
    * Function to find the depth of the tree
    *
    * @param bt The binary tree
@@ -34,9 +69,7 @@ public class BinaryTreeUtils {
     int rightDepth = 0;
     if (pNode.getLeft() != null) {
       leftDepth = findMaxDepthInternal(pNode.getLeft());
-      if (depth < leftDepth) {
-        depth = leftDepth;
-      }
+      depth = leftDepth;
     }
     if (pNode.getRight() != null) {
       rightDepth = findMaxDepthInternal(pNode.getRight());
@@ -68,9 +101,7 @@ public class BinaryTreeUtils {
     maxVal = pNode.getData();
     if (pNode.getLeft() != null) {
       int maxValLeft = findMaxInternal(pNode.getLeft());
-      if (maxValLeft > maxVal) {
-        maxVal = maxValLeft;
-      }
+      maxVal = maxValLeft;
     }
     if (pNode.getRight() != null) {
       int maxValRight = findMaxInternal(pNode.getRight());
@@ -122,7 +153,7 @@ public class BinaryTreeUtils {
    * @param bt The binary tree whose sum of leaf nodes is to be found.
    * @return The sum of leaf nodes
    */
-  public static int leafNodeSum(BinaryTree<Integer> bt) {
+  public static int findLeafNodeSum(BinaryTree<Integer> bt) {
     Queue<BinaryTreeNode<Integer>> nodes = new LinkedList<BinaryTreeNode<Integer>>();
     int currentLevelSum = 0;
     // LinkedList<Integer> currentLevelData = new LinkedList<Integer>();
@@ -188,6 +219,7 @@ public class BinaryTreeUtils {
   public static int findDiameter(BinaryTree<?> bt) {
     return findDiameterInternal(bt.getRoot());
   }
+
   /**
    * Private Function to determine the diameter at the subtree of a binary tree under a given node
    *
