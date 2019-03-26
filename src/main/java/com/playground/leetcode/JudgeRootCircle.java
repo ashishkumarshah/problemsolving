@@ -43,11 +43,7 @@ public class JudgeRootCircle {
      * @return whether the robot is at home position
      */
     public boolean isHome() {
-      if (x == 0 && y == 0) {
-        return true;
-      } else {
-        return false;
-      }
+      return (x == 0 && y == 0);
     }
   }
 
