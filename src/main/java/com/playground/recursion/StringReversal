@@ -1,0 +1,17 @@
+package com.playground.recursion;
+
+public class StringReversal {
+    public void reverseString(char[] s) {
+        if (s.length>0)
+            reverseInternal(s,0);
+    }
+    private void reverseInternal(char[] s, int index) {
+        if (index >= (s.length/2))
+            return ;
+        char beginning = s[index];
+        char ending = s[s.length - index -1];
+        s[index] = ending;
+        s[s.length -index -1] = beginning;
+        reverseInternal(s,index+1);
+    }
+}
