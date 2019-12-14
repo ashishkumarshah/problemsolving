@@ -9,7 +9,7 @@
 
 // Apply the java plugin to add support for Java
 plugins {
-  id 'com.github.sherter.google-java-format' version '0.6'
+  id 'com.github.sherter.google-java-format' version '0.8'
 }
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -19,7 +19,7 @@ apply plugin: 'idea'
 
 
 jacoco {
-    toolVersion = "0.7.6.201602180812"
+    toolVersion = "0.8.5"
     reportsDir = file("$buildDir/customJacocoReportDir")
 }
 
@@ -27,7 +27,7 @@ jacocoTestReport {
     reports {
         xml.enabled true
         csv.enabled false
-        html.destination "${buildDir}/jacocoHtml"
+        html.destination file("${buildDir}/jacocoHtml")
     }
 }
 

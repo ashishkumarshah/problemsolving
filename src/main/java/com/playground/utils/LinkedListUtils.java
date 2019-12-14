@@ -2,6 +2,7 @@ package com.playground.utils;
 
 import com.playground.datastructures.LinkedList;
 import com.playground.datastructures.LinkedListNode;
+
 /** This class contains utility functions for a linked list data structure */
 public class LinkedListUtils {
   /**

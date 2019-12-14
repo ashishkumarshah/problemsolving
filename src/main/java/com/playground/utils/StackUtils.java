@@ -84,7 +84,8 @@ public class StackUtils {
     higherPriceIndices.push(0);
     stockSpan[0] = 1;
     for (int i = 1; i < closingStockPrices.length; i++) {
-      //pop out until, the top refers to an index, whose price is greater than the current stock price
+      // pop out until, the top refers to an index, whose price is greater than the current stock
+      // price
       while (!higherPriceIndices.empty()
           && closingStockPrices[higherPriceIndices.peek()] <= closingStockPrices[i])
         higherPriceIndices.pop();

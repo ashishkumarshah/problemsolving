@@ -3,6 +3,7 @@ package com.playground.datastructures;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
 /** Class to test the implementation of SortedLinkedList */
 public class SortedLinkedListTest {
   @Test
