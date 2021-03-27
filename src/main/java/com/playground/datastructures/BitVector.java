@@ -1,43 +1,68 @@
 package com.playground.datastructures;
-/**
- * This class represents the Base Node in Data Structures such as a LinkedList, Double Linked List,
- * Tree etc.
- */
+/** This class represents the BitVector data structure */
 public class BitVector {
   private int capacity;
   private int[] data;
   /**
-   * Constructor to create an instance of the node;
+   * Constructor to create an instance of the bit vector;
    *
-   * @param pObject Initial Value of the Object
+   * @param capacity Capacity of the Bit Map
    */
   BitVector(int capacity) {
     setCapacity(capacity);
     initBitVector(getCapacity());
   }
 
+  /**
+   * Function to add an integer to the bit vector
+   *
+   * @param pVal Integer to add to the bit vector
+   */
   public void addInteger(int pVal) {
     int arrayPosition = Math.floorDiv(pVal, 4 * 8);
     int bitPosition = pVal - arrayPosition * 4 * 8;
     setBit(arrayPosition, bitPosition);
   }
 
+  /**
+   * Function to remove an integer from the bit vector
+   *
+   * @param pVal Integer to remove from the bit vector
+   */
   public void removeInteger(int pVal) {
     int arrayPosition = Math.floorDiv(pVal, 4 * 8);
     int bitPosition = pVal - arrayPosition * 4 * 8;
     clearBit(arrayPosition, bitPosition);
   }
 
+  /**
+   * Function to set the bit at a given position in the index at the array position
+   *
+   * @param arrayIndex index in the array
+   * @param bitIndex bit position to set in the integer
+   */
   private void setBit(int arrayIndex, int bitIndex) {
     int bitFilter = determineBitFilter(bitIndex);
     data[arrayIndex] = data[arrayIndex] | bitFilter;
   }
 
+  /**
+   * Function to clear the bit at a given position in the index at the array position
+   *
+   * @param arrayIndex index in the array
+   * @param bitIndex bit position to clear in the integer
+   */
   private void clearBit(int arrayIndex, int bitIndex) {
     int bitFilter = ~determineBitFilter(bitIndex);
     data[arrayIndex] = data[arrayIndex] & bitFilter;
   }
 
+  /**
+   * Function to determine if an integer is present in the bit vector
+   *
+   * @param pVal Value to check in the bit vector
+   * @return true if the number is present in the bit vector, false otherwise
+   */
   public boolean isPresent(int pVal) {
     int arrayPosition = Math.floorDiv(pVal, 4 * 8);
     int bitPosition = pVal - arrayPosition * 4 * 8;
@@ -46,6 +71,13 @@ public class BitVector {
     return ((bitFilter & data[arrayPosition]) != 0x00000000);
   }
 
+  /**
+   * Function to return the bit filter representing an integer which has a set bit only at the bit
+   * postion
+   *
+   * @param bitPosition position in the filter which has to be set
+   * @return The bit filter
+   */
   private int determineBitFilter(int bitPosition) {
     int filter = 0x00000000;
     switch (bitPosition) {
@@ -150,22 +182,28 @@ public class BitVector {
   }
 
   /**
-   * This function is used to retreive the data from a Node
+   * This function is used to retreive the capacity of the bit vector
    *
-   * @return The data in the Node
+   * @return The capacity of the bit vector
    */
   public int getCapacity() {
     return capacity;
   }
+
   /**
-   * This function is used to set data in a node
+   * This function is used to set capacity of the bit vector
    *
-   * @param pObject Data to be set in the node
+   * @param pCapacity Capacity of the bit vector
    */
   private void setCapacity(int pCapacity) {
     capacity = pCapacity;
   }
 
+  /**
+   * Function to initialise the bit vector
+   *
+   * @param pCapacity Capacity of the bit vector
+   */
   private void initBitVector(int pCapacity) {
     int arraySize = Math.floorDiv(pCapacity, 4 * 8) + 1;
     data = new int[arraySize];
